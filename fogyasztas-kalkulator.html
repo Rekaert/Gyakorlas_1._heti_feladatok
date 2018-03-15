@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Fogyasztás kalkulátor</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form class="form-horizontal form-control">
+                        <h1>Fogyasztás kalkulátor</h1>
+                        <div class="form-group">
+                            <label for="megtettKilometer" class="col-sm-3 control-label">Megtett kilométer:</label>
+                            <div class="col-sm-6">
+                                <input class=" form-control " type="number " name="amountInput " id="megtettKilometer">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fogyasztottUzemanyag" class="col-sm-3 control-label">Fogyasztott Üzrmanyag:</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" type="number" name="fogyasztottUzemanyag" id="fogyasztottUzemanyag">
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <input class="btn btn-primary" onclick="calculate() " type="button " value="Számolj">
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/jQuery/jquery-3.3.1.min.js "></script>
+    <script src="/Bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js "></script>
+    <script>
+        /*Fogyasztás kalkulátor 
+        Készíts egy oldalt, amin két beviteli mezőben meg lehet adni a megtett kilométert és fogyasztott üzemanyagot literben. Gombnyomásra egy felbukkanó ablakban írja ki, hogy mennyi az adott értékekre az átlagfogyasztás, valamint az eddig megadott értékek (több értékpár is megadható egymásután) alapján az összes eddigi szakaszon mért átlagfogyasztás. */
+
+        function calculate() {
+            var megtettKilometer = parseFloat(document.querySelector('#megtettKilometer').value);
+            var fogyasztottUzemanyag = parseFloat(document.querySelector('#fogyasztottUzemanyag').value);
+
+            var output = parseFloat(fogyasztottUzemanyag / megtettKilometer * 100);
+            alert(
+                `Az átlagfogyasztás ${megtettKilometer} km-nél ${fogyasztottUzemanyag} liter fogyasztott üzemanyag esetén: ${output} liter`
+            );
+
+            /* A feladat második részében pontosan mire gondol?
+            "az eddig megadott értékek (több értékpár is megadható egymásután) alapján az összes eddigi szakaszon mért átlagfogyasztás"
+            Minden egyes értékpár, amit beírok az inputmezőbe (pl. először 50 km - 6 l, utána 120 km - 12 l) ezeket az értékeket adja össze (pl.50km+120km - 6 l + 12 l), és erre is számoljon átlagfogyasztást?
+            
+            Valami ilyesmivel próbálkoztam: tehát a megtettKilometer értékét mindig növelem azzal, amit újonnan beírok az inputmezőbe, és ugyanez a fogyasztott üzemanyagnál
+
+            megtettKilometer += megtettKilometer;
+             fogyasztottUzemanyag += fogyasztottUzemanyag;
+             output = parseFloat(fogyasztottUzemanyag / megtettKilometer * 100);
+             alert(`Az összes eddigi szakaszon mért átlagfogyasztás: ${output} liter`); */
+
+        }
+    </script>
+</body>
+
+</html>

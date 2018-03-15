@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Kamatszámítás</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form class="form-horizontal form-control">
+                        <h1>Kamatszámítás</h1>
+                        <div class="form-group">
+                            <label for="amountInput" class="col-sm-2 control-label">Összeg:</label>
+                            <div class="col-sm-6">
+                                <input class=" form-control " type="number " name="amountInput " id="amountInput">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="kamatlab " class="col-sm-2 control-label">Kamatszázalék:</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" type="number" name="kamatlab" id="kamatlab">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ev" class="col-sm-2 control-label">Futamido:</label>
+                            <div class="col-sm-6">
+                                <input class="form-control " type="number " name="futamido" id="futamido">
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <input class="btn btn-primary" onclick="calculate() " type="button " value="Számolj ">
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/jQuery/jquery-3.3.1.min.js "></script>
+    <script src="/Bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js "></script>
+    <script>
+        /*Kamatszámítás már változó futamidőre is
+        Lehessen megadni az évet és a kamatszázalékot is egy-egy beviteli mezőben és így számoljon! */
+
+        function calculate() {
+            var osszeg = parseFloat(document.querySelector('#amountInput').value);
+            var ev = parseFloat(document.querySelector('#futamido').value);
+            var kamat = parseFloat(document.querySelector('#kamatlab').value);
+            var output = parseInt(osszeg * Math.pow((1 + kamat / 100), ev));
+            alert(`${osszeg} Ft után ${ev} éves futamidőre ${kamat}-os % kamattal ${output} Ft-od lesz`);
+        }
+    </script>
+</body>
+
+</html>

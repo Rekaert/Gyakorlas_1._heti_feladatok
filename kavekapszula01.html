@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Kávékapszula műalkotás tervező</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form class="form-inline form-control">
+                        <h1>Kávékapszula műalkotás tervező</h1>
+                        <p class="lead text-justify">Képzeld el, hogy van egy átlátszó, hajlítható műanyag cső, ami mindkét végén lyukas.
+                            <br>Ebbe tudunk becsúsztatni különböző színű kávékapszulákat</p>
+                        <input class="btn btn-primary" onclick="showKapszulak()" type="button " value="Mutasd az alkotást" id="alkotas">
+                        <hr>
+                        <div class="form-group text-left">
+                            <h3>Kapszula hozzáadása</h3>
+                            <div class="form-group">
+                                <label for="color">Kapszula színe:</label>
+                                <input type="text" name="color" class="form-control" id="color">
+                            </div>
+                            <input class="btn btn-primary" onclick="beteszAzElejere()" type="button " value="Tedd az elejére" id="gomb1">
+                            <input class="btn btn-primary" onclick="beteszAVegere()" type="button " value="Tedd a végére" id="gomb2">
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <h3>Kapszula kivétele</h3>
+                            <input class="btn btn-primary" onclick="kiveszAzElejerol()" type="button " value="Vedd ki az elejéről" id="gomb3">
+                            <input class="btn btn-primary" onclick="kiveszAVegerol()" type="button " value="Vedd ki a végéről" id="gomb4">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/jQuery/jquery-3.3.1.min.js "></script>
+    <script src="/Bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js "></script>
+    <script>
+        /*Feladat:1. Kávékapszula újrahasznosítás
+        Készíts egy új oldalt, ami segít olyan műalkotás megtervezésében, amely újrahasznosított kávékapszulákból áll. Egy hajlítható műanyag csőbe tudjuk helyezni a különböző színű kapszulákat egymás mellé. Így alakul ki az alkotás, amit aztán különböző formára hajlíthatunk.
+        Neked most olyan oldalt kell készítened, ami egy tömbben eltárolja, milyen színű kapszulák vannak a csőben. Kezdetben üres a cső. Tedd lehetővé az oldalon, hogy a felhasználó be tudjon tenni egy bizonyos színű kapszulát a cső bármelyik végébe, illetve ki is tudjon venni belőle. Most a színeket még csak a nevükkel adjuk meg egy input boxban: sárga, kék stb.
+        Bármikor megnézhesse a felhasználó, hogy éppen milyen színű kapszulák vannak sorban a csőben. Ez most csak annyit jelent, hogy egy felbukkanó ablakban megjeleníti a színek neveit sorban vesszővel elválasztva.*/
+
+        var kapszulak = [];
+        var inputColor = (document.querySelector('#color').value).toUpperCase();
+
+        function showKapszulak() {
+            alert(`Kapszulák a csőben: ${kapszulak.join()}`);
+        }
+
+        function beteszAzElejere() {
+            kapszulak.unshift(inputColor);
+        }
+
+        function beteszAVegere() {
+            kapszulak.push(inputColor);
+        }
+
+        function kiveszAzElejerol() {
+            kapszulak.shift(inputColor);
+        }
+
+        function kiveszAVegerol() {
+            kapszulak.pop(inputColor);
+        }
+
+        //Miért nem működik?
+    </script>
+</body>
+
+</html>

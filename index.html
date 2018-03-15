@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Kamatszámítás</title>
+</head>
+
+<body>
+    <section>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="form-control">
+                    <form class="form-inline">
+                        <h1>Kamatszámítás</h1>
+
+                        <p class="lead">Írd be az összeget sé megnondom, hogy 5 év múlva 2.5%-os kamatra mennyi pénzed lesz</p>
+                        <label for="amountInput">Összeg:</label>
+                        <input class="form-control" type="number" name="amountInput" id="amountInput">
+                        <input class="btn btn-primary" onclick="calculate()" type="button" value="Számolj">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="/Bootstrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script>
+        /* Kamatszámítás
+        Ez egy kicsit összetettebb feladat, amiben több eddigi leckében tanult dolgot is kell használnod. Készíts egy egyszerű html oldalt, amin kamatot lehet számolni az összeg megadásával fix időre és kamatszázalékkal.*/
+
+        function calculate() {
+            var amountInputbox = document.getElementById('amountInput');
+            var amount = parseInt(amountInputbox.value);
+            var outputAmount = parseInt(amount * Math.pow(1.025, 5));
+            alert(`5 év múlva ${outputAmount} Ft-od lesz.`);
+        }
+    </script>
+</body>
+
+</html>
