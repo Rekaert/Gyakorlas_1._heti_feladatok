@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Jutalék</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <form id="jutalekForm">
+                        <h2>Jutalék kalkulátor</h2>
+                        <div class="form-group">
+                            <label for="haviEladas">Havi eladási összeg:</label>
+                            <input class="form-control" type="number" name="eladas" id="eladasiOsszeg">
+                        </div>
+                        <button class="btn btn-success" id="button">Számolj</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /*Jutalék
+                        Az értékesítők 10% jutalékot kapnak, de csak abban az esetben, ha a havi eladás értéke legalább 1.000.000 Ft.
+                        Számold ki, a jutalékot a bekért eladási összeg alapján és jelenítsd meg a kapott értéket egy felugró ablakban. */
+
+
+        document.querySelector('#button').addEventListener("click", function () {
+            var jutalek = 0;
+            var eladasiOsszeg = parseFloat(document.querySelector('#eladasiOsszeg').value);
+            var jutalekOsszege = 0;
+            var eredmeny = "";
+
+
+            if (eladasiOsszeg >= 1000000) {
+                jutalek = 0.1;
+                jutalekOsszege += eladasiOsszeg * jutalek;
+                return alert(
+                    `Az ehavi eladások alapján a jutalék ${jutalek * 100} %, ami összesen ${jutalekOsszege} ft`
+                );
+
+            } else {
+                return alert(`Nincs bónusz`);
+            }
+
+        });
+
+
+        /* console-on:
+        var jutalek = 0;
+        var haviEladasiOsszeg = 5000000;
+        var eredmeny;
+
+
+        if(haviEladasiOsszeg >= 1000000) {
+            jutalek = 0.1;
+            eredmeny = haviEladasiOsszeg * jutalek;
+            console.log(`A jutalék ${jutalek}%, ami összesen ${eredmeny} ft`);
+        }
+        else {
+        console.log('Nincs jutalék');
+
+        }
+            */
+    </script>
+</body>
+
+</html>

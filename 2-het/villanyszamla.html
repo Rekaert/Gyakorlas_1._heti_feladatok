@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Villanyszámla kalkulátor</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <form>
+                        <h1>Villanyszámla kalkulátor</h1>
+                        <div class="form-group">
+                            <label for="elozo">Előző havi villanyóraállás:</label>
+                            <input class="form-control" type="text" name="elozo" id="elozo">
+                        </div>
+                        <div class="form-group">
+                            <label for="jelenlegi">Jelenlegi villanyóraállás:</label>
+                            <input class="form-control" type="text" name="jelenlegi" id="jelenlegi">
+                        </div>
+                        <button class="btn btn-primary" onclick="countVillanyszamla()">Számolj</button>
+                        <span></span>
+                </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
+    <script>
+        /*Villanyszámla
+                Kérd be a villanyóra előző és jelenlegi állását. Ez alapján számítsd ki az aktuális havi számla összegét, ha egy egység 37.5 Ft. A villanyóra állása egy egész szám 0 és 9999 között. Amikor a villanyóra eléri a 9999-et átfordul és újraindul 0-ról. Ebben az esetben az előző állás nagyobb, mint az aktuális.
+                Jelenítsd meg az aktuális havi villanyszámla összegét, de ne felejtsd el előtte a 27% Áfa-t hozzáadni. */
+        /* alerttel működik */
+        function countVillanyszamla() {
+
+            var elozoHavi = parseInt(document.querySelector('#elozo').value),
+                eHavi = parseInt(document.querySelector('#jelenlegi').value),
+                villanyszamla = 0,
+                egysegar = 37.5,
+                afa = 1.27;
+
+
+            if (eHavi > elozoHavi) {
+                villanyszamla += ((eHavi - elozoHavi) * 37.5) * 1.27;
+                return alert(`Ebben a hónapban a villanyszámla: ${villanyszamla} Ft`);
+            } else if (eHavi < elozoHavi) {
+                villanyszamla += (((eHavi + 10000) - elozoHavi) * 37.5) * 1.27;
+                return alert(`Ebben a hónapban a villanyszámla: ${villanyszamla} Ft`);
+            } else {
+                return alert(`ebben a hónapban nem volt fogyasztás.`);
+            }
+
+        }
+
+        /*innerHTML (nem működik)*/
+
+        function countVillanyszamla() {
+
+            var elozoHavi = parseInt(document.querySelector('#elozo').value),
+                eHavi = parseInt(document.querySelector('#jelenlegi').value),
+                villanyszamla = 0,
+                egysegar = 37.5,
+                afa = 1.27,
+                eredmeny = "";
+
+
+            if (eHavi > elozoHavi) {
+                villanyszamla += ((eHavi - elozoHavi) * 37.5) * 1.27;
+                eredmeny += `Ebben a hónapban a villanyszámla: ${villanyszamla} Ft`;
+            } else if (eHavi < elozoHavi) {
+                villanyszamla += (((eHavi + 10000) - elozoHavi) * 37.5) * 1.27;
+                eredmeny += `Ebben a hónapban a villanyszámla: ${villanyszamla} Ft`;
+            } else {
+                eredmeny += `ebben a hónapban nem volt fogyasztás.`;
+            }
+            return eredmeny;
+
+            document.querySelector('span').innerHTML += eredmeny;
+        }
+    </script>
+</body>
+
+</html>

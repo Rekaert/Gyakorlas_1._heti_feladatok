@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Napok és hónapok</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <form>
+                        <h1>Napok és hónapok</h1>
+                        <div class="form-group">
+                            <label for="months">Válassz egy hónapot:</label>
+                            <select class="form-control" id="months">
+                                <option value="01">Január</option>
+                                <option value="02">Február</option>
+                                <option value="03">Március</option>
+                                <option value="04">Április</option>
+                                <option value="05">Május</option>
+                                <option value="06">Június</option>
+                                <option value="07">Július</option>
+                                <option value="08">Augusztus</option>
+                                <option value="09">Szeptember</option>
+                                <option value="10">Október</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" onclick="getMonths()">Mutasd hány nap van ebben a hónapban!</button>
+                        <p id="eredmeny"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        /*Napok és hónapok
+                                                Készíts egy lenyíló listát a hónapok neveivel. Gomb megnyomására írd ki, hogy a kiválasztott hónapban hány nap van. Használj switch utasítást!
+                                                Miért csak egy pillanatra jelenik meg az innerHTML-lel való kiíratás? */
+
+        function getMonths() {
+            var months = parseInt(document.querySelector('#months').value);
+            var eredmeny = document.querySelector('#eredmeny');
+
+            switch (months) {
+                case 01:
+                    eredmeny.innerHTML = "Január 31 napos";
+                    break;
+                case 02:
+                    eredmeny.innerHTML = "Február 28 napos";
+                    break;
+                case 03:
+                    eredmeny.innerHTML = "Március 31 napos";
+                    break;
+                case 04:
+                    eredmeny.innerHTML = "Április 30 napos";
+                    break;
+                case 05:
+                    eredmeny.innerHTML = "Május 31 napos";
+                    break;
+                case 06:
+                    eredmeny.innerHTML = "Június 30 napos";
+                    break;
+                case 07:
+                    eredmeny.innerHTML = "Július 31 napos";
+                    break;
+                case 08:
+                    eredmeny.innerHTML = "Augusztus 31 napos";
+                    break;
+                case 09:
+                    eredmeny.innerHTML = "Szeptember 30 napos";
+                    break;
+                case 10:
+                    eredmeny.innerHTML = "Október 31 napos";
+                    break;
+                case 11:
+                    eredmeny.innerHTML = "November 30 napos";
+                    break;
+                case 12:
+                    eredmeny.innerHTML = "December 31 napos";
+                    break;
+
+            }
+            return eredmeny;
+            eredmeny.innerHTML = eredmeny;
+
+        }
+
+
+
+
+
+        /*Működik:
+           function getMonths() {
+
+               var months = parseInt(document.querySelector('select').value);
+
+               switch (months) {
+                   case 01:
+                       alert("Január 31 napos");
+                       break;
+                   case 02:
+                       alert("Február 28 napos");
+                       break;
+                   case 03:
+                       alert("Március 31 napos");
+                       break;
+                   case 04:
+                       alert("Április 30 napos");
+                       break;
+                   case 05:
+                       alert("Május 31 napos");
+                       break;
+                   case 06:
+                       alert("Június 30 napos");
+                       break;
+                   case 07:
+                       alert("Július 31 napos");
+                       break;
+                   case 08:
+                       alert("Augusztus 31 napos");
+                       break;
+                   case 09:
+                       alert("Szeptember 30 napos");
+                       break;
+                   case 10:
+                       alert("Október 31 napos");
+                       break;
+                   case 11:
+                       alert("November 30 napos");
+                       break;
+                   case 12:
+                       alert("December 31 napos");
+                       break;
+                   default:
+                       alert('Nincs ilyen hónap');
+                       break;
+               }
+           } */
+    </script>
+</body>
+
+</html>

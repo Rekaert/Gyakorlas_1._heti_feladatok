@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Számológép</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <form id="calculator">
+                        <div class="form-group">
+                            <label for="szam1">Szám:</label>
+                            <input class="form-control" type="number" name="szam" id="szam1">
+                        </div>
+                        <div class="form-group">
+                            <label for="szam2">Szám:</label>
+                            <input class="form-control" type="number" name="szam" id="szam2">
+                        </div>
+                        <div class="form-group">
+                            <label for="szam2">Műveleti jel:</label>
+                            <select name="aritmetika" id="aritmetika">
+                                <option value="1">összeadás</option>
+                                <option value="2">kivonás</option>
+                                <option value="3">szorzás</option>
+                                <option value="4">osztás</option>
+                                <option value="5">hatványozás</option>
+                                <option value="6">gyökvonás</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-success" onclick="calculate()">Számolj</button>
+                        <button class="btn btn-warning" onclick="clearNumbers()">Clear</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function calculate() {
+            var numberFirst = parseFloat(document.querySelector('#szam1').value);
+            var numberSecond = parseFloat(document.querySelector('#szam2').value);
+            var aritmeticSign = parseInt(document.querySelector('#aritmetika').value);
+
+            switch (aritmeticSign) {
+                case 1:
+                    alert(numberFirst + numberSecond);
+                    break;
+                case 2:
+                    alert(numberFirst - numberSecond);
+                    break;
+                case 3:
+                    alert(numberFirst * numberSecond);
+                    break;
+                case 4:
+                    alert(numberFirst / numberSecond);
+                    break;
+                case 5:
+                    alert(Math.pow(numberFirst, numberSecond));
+                    break;
+                case 6:
+                    alert(`${numberFirst} négyzetgyöke: ${Math.sqrt(numberFirst)}`);
+                    alert(`${numberSecond} négyzetgyöke: ${Math.sqrt(numberSecond)}`);
+                    break;
+                default:
+                    alert('Nincs ilyen szám');
+                    break;
+
+            }
+
+        }
+
+        function clearNumbers() {
+            document.querySelector('#calculate').reset();
+
+        }
+    </script>
+
+</body>
+
+</html>

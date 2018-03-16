@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label for="">Eladási összeg:</label>
+                            <input class="form-control" name="eladas" type="number" id="eladasiOsszeg">
+                        </div>
+                        <button class="btn btn-primary" onclick="calculate()">Számolj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /*Jutalék plussz
+        Az értékesítők 10% jutalékot kapnak, ha a havi eladás értéke legalább 1.000.000 Ft. Különben, ha az eladás elérte az 500.000 Ft-ot, akkor 5%. Azalatt nincs bónusz egyáltalán.
+        Számold ki, a jutalékot a bekért eladási összeg alapján és jelenítsd meg a kapott értéket egy felugró ablakban.*/
+
+        function calculate() {
+            var jutalek = 0;
+            var eladasiOsszeg = parseFloat(document.querySelector('#eladasiOsszeg').value);
+            var jutalekOsszege;
+
+            if (eladasiOsszeg >= 1000000) {
+                jutalek = 0.1;
+                jutalekOsszege = eladasiOsszeg * jutalek;
+                return alert(
+                    `Az ehavi eladások alapján a jutalék ${jutalek * 100} %, ami összesen ${jutalekOsszege} ft`);
+            } else if (eladasiOsszeg >= 500000) {
+                jutalek = 0.05;
+                jutalekOsszege = eladasiOsszeg * jutalek;
+                return alert(
+                    `Az ehavi eladások alapján a jutalék ${jutalek * 100} %, ami összesen ${jutalekOsszege} ft`)
+            } else {
+                return alert(`Nincs bónusz`);
+            }
+
+        }
+
+        /*Megoldás ternary operátorral:*/
+
+
+        function calculate() {
+            var jutalek = 0;
+            var eladasiOsszeg = parseFloat(document.querySelector('#eladasiOsszeg').value);
+            var jutalekOsszege;
+
+            return (eladasiOsszeg >= 1000000)
+
+                ?
+                (jutalek = 0.1,
+                    jutalekOsszege = eladasiOsszeg * jutalek,
+                    alert(`Az ehavi eladások alapján a jutalék ${jutalek * 100} %, ami összesen ${jutalekOsszege} ft`))
+
+                :
+                ((eladasiOsszeg >= 500000)
+
+                    ?
+                    (jutalek = 0.05,
+                        jutalekOsszege = eladasiOsszeg * jutalek,
+                        alert(
+                            `Az ehavi eladások alapján a jutalék ${jutalek * 100} %, ami összesen ${jutalekOsszege} ft`
+                        ))
+
+                    :
+                    alert(`Nincs bónusz`)
+
+                );
+        }
+    </script>
+</body>
+
+</html>

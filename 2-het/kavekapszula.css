@@ -1,0 +1,31 @@
+body {
+    box-sizing: border-box;
+    height: 500px;
+    width: 800px;
+    position: relative;
+    top: 150px;
+    left: 250px;
+    border: solid 2px #058;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    overflow: hidden;
+    color: darkblue;
+}
+
+.container::before,
+.col,
+.row::after {
+    overflow: hidden;
+    box-sizing: border-box;
+    background: aliceblue;
+}
+
+h1,
+h3 {
+    text-shadow: 1px 2px #000;
+}
+
+/*hogy lehet középre pozicionálni a borderrel határolt részt?
+miért lóg ki a container osztályú rész a borderen túlra?
+hogyan lehet a borderen belül beállítani a háttérszínt? */
