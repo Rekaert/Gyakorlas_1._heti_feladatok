@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Téglalap</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-md-4">
+                    <form>
+                        <h1>Téglalap rajzolása csillagokból</h1>
+                        <div class="form-group">
+                            <label for="row">Sorok száma:</label>
+                            <input class="form-control" type="number" name="userinput" id="row">
+                        </div>
+                        <div class="form-group">
+                            <label for="column">Oszlopok száma:</label>
+                            <input class="form-control" type="number" name="userinput" id="column">
+                        </div>
+                        <button class="btn btn-primary" onclick="drowRectangle()">Mutasd a téglalapot!</button>
+                        <p id="result"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        /* Téglalap
+        Rajzolj ki a felugró ablakban egy téglalapot *-okból. Kérd be hozzá a méretét beviteli mezőkben.*/
+
+        function drowRectangle() {
+            var row = parseInt(document.querySelector('#row').value);
+            var column = parseInt(document.querySelector('#column').value);
+            var result = document.querySelector('#result');
+            var sorok = "";
+            var oszlopok = "";
+            for (var i = 0; i < column; i++) {
+                oszlopok += "*";
+            }
+            for (var i = 0; i < row; i++) {
+                sorok += `${oszlopok}\n`;
+            }
+            // result.innerHTML = oszlopok;
+            alert(sorok);
+        }
+    </script>
+</body>
+
+</html>

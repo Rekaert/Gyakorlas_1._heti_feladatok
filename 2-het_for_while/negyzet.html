@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Négyzet</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <form>
+                        <div class="form-group">
+                            <label for="">Írjon be egy számot</label>
+                            <input class="form-control" name="userinput" type="number" id="negyzet">
+                        </div>
+                        <button class="btn btn-primary">Mutasd a négyzetet!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        /*Négyzet
+                Rajzolj ki a felugró ablakban egy négyzetet *-okból. Kérd be hozzá a méretét egy beviteli mezőben. */
+
+        document.querySelector('.btn').addEventListener('click', function () {
+
+            var userInput = parseFloat(document.querySelector('#negyzet').value);
+            var sor = '';
+            var negyzet = '';
+
+            for (var i = 0; i < userInput; i++) {
+
+                sor += '*';
+            }
+
+            for (var i = 0; i < userInput; i++) {
+                negyzet += sor + '\n\r';
+            }
+            alert(negyzet);
+
+        })
+    </script>
+</body>
+
+</html>

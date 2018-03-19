@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Szorzótábla</title>
+    <style>
+        body {
+            margin: 300px;
+            position: relative;
+        }
+
+        form {
+            height: 300px;
+            width: 500px;
+            border: solid 2px darkblue;
+            padding: 30px;
+            padding-bottom: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label for="szam">Szorzó:</label>
+                            <input class="form-control" id="szam" name="userinput" type="number">
+                        </div>
+                        <button class="btn btn-primary" id="getMultiply">Szorozd meg a számot!</button>
+                        <p id="result"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        /* Írd ki felugró ablakban a szorzótáblát egy adott számra, amit egy beviteli mezőben kérj be. */
+
+        document.querySelector('.btn').addEventListener('click', function () {
+            var szam = parseFloat(document.querySelector('#szam').value);
+            var text = document.querySelector('#result');
+            var result = ``;
+
+            for (var i = 1; i < 13; i++) {
+                // alert(`${i} * ${szam} = ${i * szam}\n`);
+                result += `${i} * ${szam} = ${i * szam}\n\r`;
+
+                // console.log(result);
+                text.innerHTML = result;
+            }
+            //return result;
+
+        });
+    </script>
+</body>
+
+</html>

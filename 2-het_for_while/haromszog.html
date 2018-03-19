@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Háromszög</title>
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <form>
+                        <div class="form-group">
+                            <label for="haromszog">Írj be egy számoz:</label>
+                            <input class="form-group" name="userinput" type="number" id="haromszog">
+                        </div>
+                        <button class="btn btn-success">Mutasd a háromszöget!</button>
+                        <p id="result"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        /*Háromszög (művésznevén fenyőfa az ajtó takarásából) Rajzolj ki a felugró ablakban egy háromszöget *-okból. Kérd be hozzá a méretét beviteli mezőkben.*/
+        document.querySelector('.btn').addEventListener('click', function () {
+
+            var userInput = parseInt(document.querySelector('input').value);
+            var sor;
+            var result = document.querySelector('#result');
+
+            for (var i = 1; i < userInput; i++) {
+                sor = "";
+
+                for (var j = 1; j <= i; j++) {
+                    sor += ` *`;
+                }
+                result.innerHTML = sor;
+            }
+        })
+
+        /*megoldás a netről:
+        var row;
+        for (var i = 1; i <= 5; i++) {    //ez a for ciklus létrehoz 5 üres sort
+            row = '';
+            for (var j = 1; j <= i; j++) { //ez a ciklus a sorokhoz hozzáadja a korábbi sor tartalmát + egy szóközt és egy csillagot, annyiszor amig j <= i-nél
+                row += ' ' + "*";
+            }
+            console.log(row);
+        }*/
+    </script>
+</body>
+
+</html>

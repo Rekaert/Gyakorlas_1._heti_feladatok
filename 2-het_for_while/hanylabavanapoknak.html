@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Hány lába van a póknak?</title>
+
+    <style>
+        body {
+            padding: 150px;
+            position: relative;
+            background: url("/spider.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="form">
+                        <div class="formgroup">
+                            <label for="">Hány lába van a póknak?</label>
+                            <input class="form-control" name="userInput" type="number">
+                        </div>
+                        <button class="btn btn-danger">Hány lába van a póknak?</button>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelector('.btn').addEventListener('click', function () {
+            var result = 8;
+            var userInput; //itt az érték undefined
+            var talalt = userInput == result ? true : false; //ezért a talalt értéke false
+
+            while (talalt != true) { //a feltétel true, tehát lefut a ciklus
+                userInput = prompt('Hány lába van a póknak?'); //a userinput értéke már nem undefined
+                talalt = result == userInput ? true : alert(`Nem talált, a póknak nem ${userInput} lába van`); //újból meg kell vizsgálni, h. azonos e a két érték
+                //ha a két érték nem egyezik meg, akkor a talalt visszatér a : utáni üzenettel
+                //ha a két érték egyezik, akkor talalt true lesz, a while feltétel már nem lesz igaz, a ciklus nem fut le mégegyszer, lefut az alsó alert üzenet
+            }
+            alert(`A válasz helyes, a póknak 8 lába van`);
+
+        })
+
+
+        /*while nélkül:
+       
+        document.querySelector('.btn').addEventListener('click', function () {
+             var result = 8;
+             var userInput = document.querySelector('input').value;
+             var talalt = false;
+
+
+             if (userInput == result) {
+                 talalt = true;
+                 document.querySelector('p').innerHTML = `A válasz helyes, a póknak ${userInput} lába van`;
+
+             } else {
+                 document.querySelector('p').innerHTML = `Nem talált, a póknak nem ${userInput} lába van`;
+
+             }
+         })
+         */
+    </script>
+</body>
+
+</html>

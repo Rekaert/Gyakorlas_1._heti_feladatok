@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Zsebpénz</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10">
+                    <form>
+                        <h1>Mennyi a zsebpénz?</h1>
+                        <div class="form-group">
+                            <label for="money">Zsebpénz:</label>
+                            <input class="form-control" type="number">
+                        </div>
+                        <button class="btn btn-primary">Mutasd a zsebpénzt!</button>
+                        <p></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelector('.btn').addEventListener('click', function () {
+            var money = parseInt(document.querySelector('.form-control').value);
+            var spending = 500;
+            var day = 0;
+
+            while (money >= spending) {
+                money = money - spending;
+                spending += 100;
+                day++;
+
+
+            }
+            alert(`A fiú ${day} napig tud így költekezni és ${money} ft-ja marad`);
+            document.querySelector('p').innerHTML =
+                `A fiú ${day} napig tud így költekezni és ${money} pénze marad`;
+        })
+    </script>
+</body>
+
+</html>

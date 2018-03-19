@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>Város populáció</title>
+    <style>
+        body {
+            padding: 50px;
+            position: relative;
+            background: radial-gradient(rgb(136, 170, 170), rgb(85, 100, 131), rgb(33, 34, 33));
+
+        }
+
+        .container {
+            border: solid 1px #999;
+            box-shadow: 0 0 5px #000;
+            width: 550px;
+            height: 400px;
+            padding: 30px;
+            background: radial-gradient( rgba(255, 0, 0, 0), rgb(156, 158, 158));
+            color: lightgrey;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form>
+                        <h3>Város populáció kiszámítása</h3>
+                        <h5>Mikor éri el a lakosok száma a 20000 főt?</h5>
+                        <button class="btn btn-warning" id="btn">Mutasd az eredményt!</button>
+                        <p id="result"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelector('#btn').addEventListener('click', function () {
+            var populacio = 10000;
+            var populacioNovekedes = parseInt(populacio * 0.03);
+
+            var ev = 2017;
+
+            while (populacio <= 20000) {
+                populacio += populacioNovekedes;
+                ev++;
+            }
+            console.log(ev);
+            //alert(`A város lakosainak száma ${ev}-re eléri a ${populacio} főt`);
+            document.querySelector('#result').innerHTML =
+                `A város lakosainak száma ${ev}-re eléri a ${populacio} főt`;
+
+        })
+    </script>
+</body>
+
+</html>
